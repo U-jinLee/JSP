@@ -10,10 +10,12 @@
 </head>
 <body>
 <%
+//아이디와 비밀번호 요청하기 
 String id= request.getParameter("id");
 String pw = request.getParameter("pw");
-session. setAttribute("sid", id);
-session. setAttribute("spw", pw);
+// add session id and session password 
+session.setAttribute("sid", id);
+session.setAttribute("spw", pw);
 %>
 <form action="BSS.jsp" method="post">
 	<table border="1">
