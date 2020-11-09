@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+#container{
+	background: red;
+}
+
+#header{
+	background: aqua;
+}
+
+#left{
+	background: gray;
+}
+
+#main{
+	background: green;
+}
+
+#footer{
+	background: aqua;
+}
