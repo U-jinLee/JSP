@@ -9,5 +9,6 @@
 <body>
 <%@ include file="JSPExam.jsp" %>
 <h1>뉴스 홈 내용</h1>
+<%@ include file="Footer.jsp" %>
 </body>
 </html>

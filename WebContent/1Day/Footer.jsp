@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>   
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSPExam</title>
+<title>Insert title here</title>
 </head>
 <body>
-<%@ include file="JSPExam.jsp" %>
-<h1>속보 내용</h1>
-<%@ include file="Footer.jsp" %>
+<p>여기는 Footer 영역입니다.</p>
 </body>
 </html>
