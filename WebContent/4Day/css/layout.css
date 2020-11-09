@@ -13,14 +13,14 @@
 #left{
 	width: 199px;
 	float: left;
-	border-right: 1px solid black;
 }
 
-<!--내용이 더 길면 들어갈 공간이 없어서 들어가지 않는다.-->
 
-#main {
+/*내용이 더 길면 들어갈 공간이 없어서 들어가지 않는다.*/
+#main{
 	width: 1000px; 
-	float: right;
+	float: left;
+	border-left: 1px solid black;
 }
 
 #footer{
