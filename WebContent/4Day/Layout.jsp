@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%
-	String pagefile = request.getParameter("page");
+	String pagefile = request.getParameter("page");//'left.jsp에서 get 방식으로 불러온 page parameter'
 	if(pagefile == null){
 		pagefile ="NewItem";
 	}
@@ -25,7 +25,9 @@
 	<jsp:include page="left.jsp" ></jsp:include>
 	
 	<!-- 메인 --><!-- 동적 페이지 include(include 액션태그) -->
+	<div id = "main">
 	<jsp:include page='<%=pagefile+".jsp"%>'></jsp:include>
+	</div>
 	<%-- <%@ include file="main.jsp"%> --%>
 	
 	<!-- 하단 -->
