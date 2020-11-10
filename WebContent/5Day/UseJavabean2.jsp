@@ -9,6 +9,7 @@
 <body>
 <form action="UseJavabean.jsp" method="get"> <!-- post 방식으로 전송 시 깨짐 현상이 발생한다. -->
 이름: <input type="text" name="name">
+나이: <input type="text" name="age">
 	<input type="submit" value="전송">
 </form>
 </body>

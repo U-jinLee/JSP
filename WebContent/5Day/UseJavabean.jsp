@@ -9,8 +9,9 @@
 <jsp:useBean id="GetNameClass" class="test.BeanTest" scope="page"></jsp:useBean>
 <%--<jsp:setProperty property="속성명" name="빈의이름"/>--%>
 <jsp:setProperty property="name" name="GetNameClass"/>
+<jsp:setProperty property="age" name="GetNameClass"/>
 </head>
 <body>
-<h3><%=GetNameClass.getName()%>님 환영합니다!</h3>
+<h3><%= GetNameClass.getAge()%>살 먹은 <%=GetNameClass.getName()%>님 환영합니다!</h3>
 </body>
 </html>
