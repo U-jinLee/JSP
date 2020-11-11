@@ -1,4 +1,6 @@
 <%@page import="java.sql.*"%>
+<%@page import="javax.sql.*"%>
+<%@page import="javax.naming.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,14 +27,20 @@ String sql = "delete from member where id=?";
 
 //jdbc 드라이버 로드
 boolean connect = false;
-try{
+try{	
 /* Class.forName(driver);
 conn = DriverManager.getConnection(url, user, password); */
+
+Context init = new InitialContext();
+DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/mysql");
+conn = ds.getConnection();
+
 connect = true;
 pstmt = conn.prepareStatement(sql);
 
 pstmt.setString(1, id);
 pstmt.executeUpdate();
+out.println("지우기 성공!");
 
 } catch(Exception e){
 	e.printStackTrace();
