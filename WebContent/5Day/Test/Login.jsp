@@ -35,7 +35,6 @@ conn = DriverManager.getConnection(url, user, password);
 pstmt = conn.prepareStatement(sql2);
 
 rs = pstmt.executeQuery();
-rs.next();
 
 /* pstmt.setString(1, id);
 pstmt.setString(2, pw);
@@ -49,11 +48,12 @@ connect = true;
 } finally{
 }
 %>
-
+<%while(rs.next()){%>
 아이디: <%=rs.getString("id") %> <br>
 비밀번호: <%=rs.getString("pw") %> <br>
 이름: <%=rs.getString("name") %> <br>
 나이: <%=rs.getInt("age") %> <br>
-나이: <%=rs.getDate("joinDate") %> <br>
+가입날짜: <%=rs.getDate("joinDate") %> <br>	
+<%} %>
 </body>
 </html>
