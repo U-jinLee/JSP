@@ -26,13 +26,15 @@
     <Manager pathname="" />
     -->
     
-    <Resource name="jdbc/basicjsp"
+    <Resource 
+    	name="jdbc/mysql"
 		auth="Container"
 		type="javax.sql.DataSource"
-		driverClassName="com.mysql.jdbc.Driver" 
+		driverClassName="com.mysql.jdbc.Driver"
+		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory" 
+		url="jdbc:mysql://localhost:3306/db?serverTimezone=Asia/Seoul"
 		username="root"
 		password="1234"
-		url="jdbc:mysql://localhost:3306/db?serverTimezone=Asia/Seoul"
 		maxWait="5000" 
 	/>
     

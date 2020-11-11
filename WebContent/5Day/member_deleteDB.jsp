@@ -16,17 +16,18 @@ PreparedStatement pstmt = null;
 
 
 //1. 드라이버 이름 및 접속할 jdbc url 설정
-String driver = "com.mysql.jdbc.Driver";
+/* String driver = "com.mysql.jdbc.Driver";
 String url = "jdbc:mysql://localhost:3306/db?serverTimezone=Asia/Seoul";
 String user = "root";
 String password = "1234";
+*/
 String sql = "delete from member where id=?";
 
 //jdbc 드라이버 로드
 boolean connect = false;
 try{
-Class.forName(driver);
-conn = DriverManager.getConnection(url, user, password);
+/* Class.forName(driver);
+conn = DriverManager.getConnection(url, user, password); */
 connect = true;
 pstmt = conn.prepareStatement(sql);
 
