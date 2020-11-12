@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <%@page import="java.sql.*"%>
 <%@page import="javax.sql.*"%>
 <%@page import="javax.naming.*"%>
@@ -29,6 +30,12 @@ try{
 	pstmt.setString(2, content);
 	pstmt.setString(3, writer);
 	pstmt.executeUpdate();
+	
+	PrintWriter script = response.getWriter();
+	script.println("<script>");
+	script.println("alert('글쓰기 저장 완료')");
+	script.println("location.href='BoardView.jsp'");
+	script.println("</script>");
 }catch(Exception e){
 	e.printStackTrace();
 } finally{

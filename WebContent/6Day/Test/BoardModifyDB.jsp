@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <%@page import= "java.sql.*" %>
 <%@page import= "javax.sql.*" %>
 <%@page import= "javax.naming.*" %>
@@ -28,6 +29,10 @@ try{
 	pstmt.setString(2, content);
 	pstmt.setInt(3, cnum);
 	pstmt.executeUpdate();
+	PrintWriter script = response.getWriter();
+	script.println("<script>");
+	script.println("location.href='BoardView.jsp'");
+	script.println("</script>");
 } catch(Exception e){
 	e.printStackTrace();
 } finally{

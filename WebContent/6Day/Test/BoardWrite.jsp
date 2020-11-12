@@ -16,7 +16,7 @@
 <td>제목</td><td><input type="text" name="title"></td>
 </tr>
 <tr>
-<td>내용</td><td><input type="text" name="content"></td>
+<td>내용</td><td><textarea cols="50" name="content"></textarea></td>
 </tr>
 <tr>
 <td>작성자</td><td><input type="text" name="writer"></td>

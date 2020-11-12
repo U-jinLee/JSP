@@ -15,7 +15,7 @@
 request.setCharacterEncoding("UTF-8");
 int cnum = Integer.parseInt(request.getParameter("cnum")); 
 Connection conn = null;
-PreparedStatement pstmt ㅊ= null;
+PreparedStatement pstmt = null;
 try{
 	String sql = "delete from bss where c_num =?"; 
 	Context init = new InitialContext();
@@ -30,7 +30,7 @@ try{
 	PrintWriter script = response.getWriter();
 	script.println("<script>");
 	script.println("alert('글 삭제가 완료됐습니다.')");
-	script.println("history.back");
+	script.println("history.back()");
 	script.println("</script>");
 	
 } catch(Exception e){
