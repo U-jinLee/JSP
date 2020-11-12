@@ -17,33 +17,33 @@ String cnum = request.getParameter("cnum");
 Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
-String sql = "select writer from bss where c_num=?";
+String sql = "select writer, title from bss where c_num=?";
 try{
 Context init = new InitialContext();
 DataSource ds = (DataSource)init.lookup("java:comp/env/jdbc/mysql");
 conn = ds.getConnection();
 pstmt = conn.prepareStatement(sql);
 pstmt.setString(1, cnum);
-rs = pstmt.executeQuery();%>
+rs = pstmt.executeQuery();
+	if(rs.next()){
+%>
 	<form action="BoardModifyDB.jsp" method="post">
 		<table border="2">
 			<tr>
 				<td colspan="2">게시판 글수정</td>
 			</tr>
 			<tr>
-				<td>글번호</td><td><%= cnum %><input type="hidden" name="cnum" value=<%= cnum %>></td>
+				<td>글번호</td><td><%= cnum %><input type="hidden" name="cnum"></td>
 			</tr>
 			<tr>
-				<td>제목</td><td><input type="text" name="title"></td>
+				<td>제목</td><td><input type="text" name="title" value="<%=rs.getString("title") %>"></td>
 			</tr>
 			<tr>
 				<td>내용</td><td><input type="text" name="content">
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<%while(rs.next()){%>
-				<td><%= rs.getString(1) %></td>
-				<%}%>
+				<td><%= rs.getString("writer") %></td>
 			</tr>
 			<tr>
 			<td colspan="2"><input type="submit" value="글 수정"></td>
@@ -51,6 +51,7 @@ rs = pstmt.executeQuery();%>
 		</table>
 	</form>
 <% 
+	}
 } catch(Exception e) {
 	e.printStackTrace();
 } finally{
