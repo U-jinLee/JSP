@@ -29,7 +29,27 @@ try{
 } catch(Exception e){
 	e.printStackTrace();
 }finally {
-	
+	if(rs != null){
+		try{			
+			rs.close();			
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	if(pstmt != null){
+		try{			
+			pstmt.close();			
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	if(conn != null){
+		try{			
+			conn.close();
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 }
 %>
 <table border="2">
