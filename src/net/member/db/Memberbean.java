@@ -7,6 +7,10 @@ public class Memberbean {
 	private int age;
 	private String joinDate;
 	
+	private String gender;
+	private String birthDate;
+	private String tel;
+	
 	public String getId() {
 		return id;
 	}
@@ -36,6 +40,25 @@ public class Memberbean {
 	}
 	public void setJoinDate(String joinDate) {
 		this.joinDate = joinDate;
+	}
+	
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(String birthDate) {
+		this.birthDate = birthDate;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 	
 }

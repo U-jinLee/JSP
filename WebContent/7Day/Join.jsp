@@ -29,6 +29,17 @@
 	            <td>이름</td>
 	            <td><input type="text" name="name"></td>
 	        </tr>
+	         <tr>
+	            <td>나이</td>
+	            <td><input type="text" name="age"></td>
+	        </tr>
+	        <tr>
+	            <td>성별</td>
+	            <td>
+	            	남<input type="radio" value="m" name="gender">
+	            	여<input type="radio" value="w"name="gender">
+	            </td>
+	        </tr>
 	        <tr>
 	            <td>생년월일</td>
 	      		<td>
@@ -68,14 +79,8 @@
 		      			<option value="11">11</option>
 		      			<option value="12">12</option>
 		      		</select>
+		      		<input type="text" name="birth">
 	      		</td>
-	        </tr>
-	        <tr>
-	            <td>성별</td>
-	            <td>
-	            	남<input type="radio" value="m" name="gender">
-	            	여<input type="radio" value="w"name="gender">
-	            </td>
 	        </tr>
 	        <tr>
 	            <td>휴대전화 번호</td>

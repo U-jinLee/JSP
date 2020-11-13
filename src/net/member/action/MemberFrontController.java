@@ -16,18 +16,37 @@ public class MemberFrontController extends HttpServlet implements javax.servlet.
     	String RequestURI=request.getRequestURI();
     	String contextPath=request.getContextPath();
     	String command=RequestURI.substring(contextPath.length());
-    	
-    	System.out.println("RequestURI"+RequestURI);
-    	System.out.println("contextPath"+contextPath);
-    	System.out.println("command"+command);
+    	/* /JSP/7Day/MemberAddAction.me */
+    	System.out.println("RequestURI="+RequestURI);
+    	/* /JSP */
+    	System.out.println("contextPath="+contextPath);
+    	/* /7Day/MemberAddAction.me */
+    	System.out.println("command="+command);
     	
     	
     	
     	
     	ActionForward forward=null;
     	Action action = null;
+    	
+    	if(command.equals("/7Day/MemberAddAction.me")) {
+    		/*회원가입과 관련된 로직과 DB연동*/
+    		action = new BoardAddAction();
+    		try {
+    			forward=action.execute(request, response);
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}finally {
+    			
+    		}
+    	}
     
-    
+    	
+    	
+    	
+    	
+    	
+    	
     	if(forward != null) {
         	if(forward.isRedirect()) {
         		response.sendRedirect(forward.getPath());
