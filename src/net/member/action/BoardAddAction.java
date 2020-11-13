@@ -18,15 +18,25 @@ public class BoardAddAction implements Action{
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String id = request.getParameter("id");
+		/* String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
 		int age= Integer.parseInt(request.getParameter("age"));
 		String gender = request.getParameter("gender");
 		String birthDate = request.getParameter("birth");
-		String tel = request.getParameter("tel");
+		String tel = request.getParameter("tel"); */
+		
+		mbean.setId(request.getParameter("id"));
+		mbean.setPw(request.getParameter("pw"));
+		mbean.setName(request.getParameter("name"));
+		mbean.setAge(Integer.parseInt(request.getParameter("age")));
+		mbean.setGender(request.getParameter("gender"));
+		mbean.setBirthDate(request.getParameter("birth"));
+		mbean.setTel(request.getParameter("tel"));
+		
+		
 		/*membertable에 insert하는 메서드*/
-		mdao.memberInsert(id, pw, name, age, gender, birthDate, tel);
+		mdao.memberInsert(mbean);
 		
 		return null;
 	}

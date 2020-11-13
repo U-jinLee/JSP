@@ -6,10 +6,10 @@ public class Memberbean {
 	private String name;
 	private int age;
 	private String joinDate;
-	
 	private String gender;
 	private String birthDate;
 	private String tel;
+	
 	
 	public String getId() {
 		return id;

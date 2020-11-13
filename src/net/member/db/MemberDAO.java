@@ -24,18 +24,18 @@ public class MemberDAO {
 			}
 	}
 
-	public void memberInsert(String id, String pw, String name, int age, String gender, String birthDate, String tel) {
+	public void memberInsert(Memberbean mbean) {
 		String SQL = "insert into member(id, pw, name, age, gender, BirthDate, tel) values(?,?,?,?,?,?,?)";
 		
 		try {
 			pstmt=conn.prepareStatement(SQL);
-			pstmt.setString(1, id);
-			pstmt.setString(2, pw);
-			pstmt.setString(3, name);
-			pstmt.setInt(4, age);
-			pstmt.setString(5, gender);
-			pstmt.setString(6, birthDate);
-			pstmt.setString(7, tel);
+			pstmt.setString(1, mbean.getId());
+			pstmt.setString(2, mbean.getPw());
+			pstmt.setString(3, mbean.getName());
+			pstmt.setInt(4, mbean.getAge());
+			pstmt.setString(5, mbean.getGender());
+			pstmt.setString(6, mbean.getBirthDate());
+			pstmt.setString(7, mbean.getTel());
 			
 			pstmt.executeUpdate();
 			
