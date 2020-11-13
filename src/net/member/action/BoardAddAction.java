@@ -38,6 +38,9 @@ public class BoardAddAction implements Action{
 		/*membertable에 insert하는 메서드*/
 		mdao.memberInsert(mbean);
 		
-		return null;
+		forward.setRedirect(false);
+		forward.setPath("member_list.jsp");
+	
+		return forward;
 	}
 }
