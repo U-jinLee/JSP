@@ -1,15 +1,13 @@
 package net.member.db;
 
-import java.io.PrintWriter;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.sql.*;
 import javax.naming.*;
 
 public class MemberDAO {
-	int a;
-	int b;
-	int c;
-	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -43,10 +41,37 @@ public class MemberDAO {
 		}catch(Exception e) {
 			e.printStackTrace();			
 		}finally {
-			if(rs != null) {try{rs.close();}catch(Exception e) {e.printStackTrace();}}
+//			if(rs != null) {try{rs.close();}catch(Exception e) {e.printStackTrace();}}
 			if(pstmt != null) {try{pstmt.close();}catch(Exception e) {e.printStackTrace();}}
 			if(conn != null) {try{conn.close();}catch(Exception e) {e.printStackTrace();}}
 		}
 	
+	} //End memberInsert
+	
+	public ArrayList<Memberbean> memberList() {
+		String SQL = "select name, birthDate, gender, tel from member";
+		ArrayList <Memberbean> list = new ArrayList();
+		try {
+			pstmt=conn.prepareStatement(SQL);
+			rs= pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Memberbean mb = new Memberbean();
+				mb.setName(rs.getString("name"));
+				mb.setBirthDate(rs.getString("birthDate"));
+				mb.setGender(rs.getString("gender"));
+				mb.setTel(rs.getString("tel"));
+				
+				list.add(mb);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();			
+		}finally {
+			if(rs != null) {try{rs.close();}catch(Exception e) {e.printStackTrace();}}
+			if(pstmt != null) {try{pstmt.close();}catch(Exception e) {e.printStackTrace();}}
+			if(conn != null) {try{conn.close();}catch(Exception e) {e.printStackTrace();}}
+		}	
+		return list;
 	}
 }

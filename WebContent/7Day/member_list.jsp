@@ -1,10 +1,18 @@
+<%@page import="net.member.action.MemberListAction"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ page import="net.member.db.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%
+ArrayList<Memberbean> boardList=(ArrayList<Memberbean>)request.getAttribute("memberlist");
+System.out.println("boardList="+boardList);
+%>
+
 </head>
 <body>
 <table border="1">
@@ -15,10 +23,17 @@
 <td>이름</td><td>생일</td><td>성별</td><td>번호</td>
 </tr>
 <!-- for 시작 -->
+
+<%
+for(int i=0;i<boardList.size();i++){
+	Memberbean member = (Memberbean)boardList.get(i);
+%>
 <tr>
-<td>김복순</td><td>93.10.29</td><td>남</td><td>010.1818.1818</td>
+<td><%= member.getName() %></td><td><%= member.getBirthDate() %></td><td><%= member.getGender() %></td><td><%= member.getTel() %></td>
 </tr>
+<%}%>
 <!-- for 종료 -->
+
 </table>
 </body>
 </html>
