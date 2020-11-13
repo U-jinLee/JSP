@@ -31,7 +31,44 @@
 	        </tr>
 	        <tr>
 	            <td>생년월일</td>
-	            <td><input type="date" name="bd"></td>
+	      		<td>
+		      		<select name="year">
+		      			<option value="00">2000</option>
+		      			<option value="01">2001</option>
+		      			<option value="02">2002</option>
+		      			<option value="03">2003</option>
+		      			<option value="04">2004</option>
+		      			<option value="05">2005</option>
+		      		</select>
+		      		<select name="month">
+		      			<option value="01">1</option>
+		      			<option value="02">2</option>
+		      			<option value="03">3</option>
+		      			<option value="04">4</option>
+		      			<option value="05">5</option>
+		      			<option value="06">6</option>
+		      			<option value="07">7</option>
+		      			<option value="08">8</option>
+		      			<option value="09">9</option>
+		      			<option value="10">10</option>
+		      			<option value="11">11</option>
+		      			<option value="12">12</option>
+		      		</select>
+		      		<select name="day">
+		      			<option value="01">1</option>
+		      			<option value="02">2</option>
+		      			<option value="03">3</option>
+		      			<option value="04">4</option>
+		      			<option value="05">5</option>
+		      			<option value="06">6</option>
+		      			<option value="07">7</option>
+		      			<option value="08">8</option>
+		      			<option value="09">9</option>
+		      			<option value="10">10</option>
+		      			<option value="11">11</option>
+		      			<option value="12">12</option>
+		      		</select>
+	      		</td>
 	        </tr>
 	        <tr>
 	            <td>성별</td>
