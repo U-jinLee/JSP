@@ -16,6 +16,14 @@ public class MemberFrontController extends HttpServlet implements javax.servlet.
     	String RequestURI=request.getRequestURI();
     	String contextPath=request.getContextPath();
     	String command=RequestURI.substring(contextPath.length());
+    	
+    	System.out.println("RequestURI"+RequestURI);
+    	System.out.println("contextPath"+contextPath);
+    	System.out.println("command"+command);
+    	
+    	
+    	
+    	
     	ActionForward forward=null;
     	Action action = null;
     

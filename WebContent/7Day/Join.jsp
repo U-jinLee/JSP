@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-	<form action="Layout.jsp?page=Login" method="post">
+	<form action="MemberAddAction.me" method="post"> <!--me의 의미? web_xml 속 mapping의 의미 -->
 	    <table border="1">
 	        <tr>
 	            <td colspan="2" style="text-align: center;">회원가입</td>
