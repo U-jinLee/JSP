@@ -44,6 +44,13 @@ public class MemberFrontController extends HttpServlet implements javax.servlet.
     		}catch(Exception e) {
     			e.printStackTrace();
     		}
+    	} else if(command.equals("/7Day/MemberDetailAction.me")) {
+    		action = new MemberDetailAction();
+    		try {
+    			forward=action.execute(request, response);
+    		} catch(Exception e) {
+    			e.printStackTrace();
+    			}
     	}
     
     	

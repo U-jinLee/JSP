@@ -75,4 +75,31 @@ public class MemberDAO {
 		}	
 		return list;
 	}
+	
+	public Memberbean MemberDetail(Memberbean mbean) {
+		/*membertable에서 한 회원의 상세내역을 조회하는 select*/
+		String SQL = "select * from member where id=?";
+		Memberbean member= null;
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			//첫번 째 물음표에 memberbean에 지정돼 있는 id값을 가져와 세팅하라
+			pstmt.setString(1, mbean.getId());
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				member = new Memberbean();
+				member.setId(rs.getString("id"));
+				member.setName(rs.getString("name"));
+				member.setBirthDate(rs.getString("birthDate"));
+				member.setGender(rs.getString("gender"));
+				member.setTel(rs.getString("tel"));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			} finally {
+				if(rs != null) {try{rs.close();}catch(Exception e) {e.printStackTrace();}}
+				if(pstmt != null) {try{pstmt.close();}catch(Exception e) {e.printStackTrace();}}
+				if(conn != null) {try{conn.close();}catch(Exception e) {e.printStackTrace();}}
+		}
+		return member;
+	}
 }
