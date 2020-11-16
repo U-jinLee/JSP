@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.*;
+
+import com.sun.swing.internal.plaf.metal.resources.metal;
+
 import javax.naming.*;
 
 public class MemberDAO {
@@ -102,5 +105,40 @@ public class MemberDAO {
 				if(conn != null) {try{conn.close();}catch(Exception e) {e.printStackTrace();}}
 		}
 		return member;
+	}
+	//회원정보 수정을 하기위한 MemberModify메서드 선언
+	public void MemberModify(Memberbean mbean) {
+		
+		
+		String SQL = "update member set pw=?,name=?,tel=? where id=?";
+		try {
+			pstmt =conn.prepareStatement(SQL);
+			pstmt.setString(1,mbean.getPw());
+			pstmt.setString(2,mbean.getName());
+			pstmt.setString(3,mbean.getTel());
+			pstmt.setString(4,mbean.getId());
+			pstmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+			}finally {
+//			if(rs != null) {try{rs.close();}catch(Exception e) {e.printStackTrace();}}
+			if(pstmt != null) {try{pstmt.close();}catch(Exception e) {e.printStackTrace();}}
+			if(conn != null) {try{conn.close();}catch(Exception e) {e.printStackTrace();}}
+		}
+	}
+	public void MemberDel(Memberbean mbean) {
+		String SQL = "delete from member where id=?";
+		try {
+			pstmt =conn.prepareStatement(SQL);
+			//첫 번째 물음표에는 ID값을 넣어라.
+			pstmt.setString(1,mbean.getId());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+//			if(rs != null) {try{rs.close();}catch(Exception e) {e.printStackTrace();}}
+			if(pstmt != null) {try{pstmt.close();}catch(Exception e) {e.printStackTrace();}}
+			if(conn != null) {try{conn.close();}catch(Exception e) {e.printStackTrace();}}
+		}
 	}
 }

@@ -17,11 +17,11 @@ public class MemberFrontController extends HttpServlet implements javax.servlet.
     	String contextPath=request.getContextPath();
     	String command=RequestURI.substring(contextPath.length());
     	/* /JSP/7Day/MemberAddAction.me */
-    		//System.out.println("RequestURI="+RequestURI);
+    		System.out.println("RequestURI="+RequestURI);
     	/* /JSP */
-    		//System.out.println("contextPath="+contextPath);
+    		System.out.println("contextPath="+contextPath);
     	/* /7Day/MemberAddAction.me */
-    		//System.out.println("command="+command);
+    		System.out.println("command="+command);
     	
     	
     	
@@ -51,8 +51,15 @@ public class MemberFrontController extends HttpServlet implements javax.servlet.
     		} catch(Exception e) {
     			e.printStackTrace();
     			}
-    	} else if(command.equals("/7day/MemberModifyAction.me")) {
+    	} else if(command.equals("/7Day/MemberModifyAction.me")) {
     		action = new MemberModifyAction();
+    		try {
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	} else if(command.equals("/7Day/MemberDelAction.me")) {
+    		action = new MemberDelAction();
     		try {
 				forward=action.execute(request, response);
 			} catch (Exception e) {

@@ -42,7 +42,7 @@
 			<td><input type="text" name="tel" value="<%= member.getTel()%>"></td>	
 		</tr>
 		<tr>
-		<td colspan="2"><input type="submit" value="회원정보수정"></td>
+			<td colspan="2"><input type="submit" value="회원정보수정"><a href="MemberDelAction.me?id=<%=member.getId() %>">탈퇴</a></td>
 		</tr>
 	</table>
 </form>
