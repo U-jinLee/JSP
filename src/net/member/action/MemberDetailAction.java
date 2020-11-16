@@ -12,11 +12,10 @@ public class MemberDetailAction implements Action {
 		
 		request.setCharacterEncoding("UTF-8");
 		mbean.setId(request.getParameter("id"));
-		
-		mdao.MemberDetail(mbean);
-		
+		Memberbean detail = mdao.MemberDetail(mbean);
+		request.setAttribute("memberDetail", detail);
 		forward.setRedirect(false);
-		forward.setPath();
-		return null;
+		forward.setPath("member_detail.jsp");
+		return forward;
 	}
 }

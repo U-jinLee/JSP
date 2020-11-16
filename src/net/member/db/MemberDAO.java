@@ -88,6 +88,7 @@ public class MemberDAO {
 			if(rs.next()) {
 				member = new Memberbean();
 				member.setId(rs.getString("id"));
+				member.setPw(rs.getString("pw"));
 				member.setName(rs.getString("name"));
 				member.setBirthDate(rs.getString("birthDate"));
 				member.setGender(rs.getString("gender"));
