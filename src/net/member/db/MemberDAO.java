@@ -49,7 +49,7 @@ public class MemberDAO {
 	} //End memberInsert
 	
 	public ArrayList<Memberbean> memberList() {
-		String SQL = "select name, birthDate, gender, tel from member";
+		String SQL = "select id ,name, birthDate, gender, tel from member";
 		ArrayList <Memberbean> list = new ArrayList();
 		try {
 			pstmt=conn.prepareStatement(SQL);
@@ -57,6 +57,7 @@ public class MemberDAO {
 			
 			while(rs.next()) {
 				Memberbean mb = new Memberbean();
+				mb.setId(rs.getString("id"));
 				mb.setName(rs.getString("name"));
 				mb.setBirthDate(rs.getString("birthDate"));
 				mb.setGender(rs.getString("gender"));

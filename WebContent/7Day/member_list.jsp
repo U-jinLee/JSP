@@ -17,10 +17,10 @@ System.out.println("boardList="+boardList);
 <body>
 <table border="1">
 <tr>
-<td colspan="4">회원명단 리스트</td>
+<td colspan="5">회원명단 리스트</td>
 </tr>
 <tr>
-<td>이름</td><td>생일</td><td>성별</td><td>번호</td>
+<td>ID</td><td>이름</td><td>생일</td><td>성별</td><td>번호</td>
 </tr>
 <!-- for 시작 -->
 
@@ -29,7 +29,7 @@ for(int i=0;i<boardList.size();i++){
 	Memberbean member = (Memberbean)boardList.get(i);
 %>
 <tr>
-<td><%= member.getName() %></td><td><%= member.getBirthDate() %></td><td><%= member.getGender() %></td><td><%= member.getTel() %></td>
+<td><a href="MemberDetailAction.me?id=<%= member.getId() %>"><%= member.getId() %></a></td><td><%= member.getName() %></td><td><%= member.getBirthDate() %></td><td><%= member.getGender() %></td><td><%= member.getTel() %></td>
 </tr>
 <%}%>
 <!-- for 종료 -->
