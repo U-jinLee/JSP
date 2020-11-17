@@ -126,13 +126,14 @@ public class MemberDAO {
 			if(conn != null) {try{conn.close();}catch(Exception e) {e.printStackTrace();}}
 		}
 	}
-	public void MemberDel(Memberbean mbean) {
+	public int MemberDel(Memberbean mbean) {
 		String SQL = "delete from member where id=?";
+		int result=0;
 		try {
 			pstmt =conn.prepareStatement(SQL);
 			//첫 번째 물음표에는 ID값을 넣어라.
 			pstmt.setString(1,mbean.getId());
-			pstmt.executeUpdate();
+			result=pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -140,5 +141,7 @@ public class MemberDAO {
 			if(pstmt != null) {try{pstmt.close();}catch(Exception e) {e.printStackTrace();}}
 			if(conn != null) {try{conn.close();}catch(Exception e) {e.printStackTrace();}}
 		}
+		return result;
 	}
+	
 }

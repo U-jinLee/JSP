@@ -11,11 +11,25 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
         <servlet-class>net.member.action.MemberFrontController</servlet-class>
         
     </servlet>
+    
+    <servlet>
+        
+        <servlet-name>BSSFrontController</servlet-name>
+        <servlet-class>net.BSS.action.BSSFrontController</servlet-class>
+        
+    </servlet>
+    
 
      <servlet-mapping>
      	<!-- 하나의 서블렛을 이용해서 처리하기 위해서 만들어 준다. -->
      	<servlet-name>MemberFrontController</servlet-name>
         <url-pattern>*.me</url-pattern>
+	 </servlet-mapping>
+	 
+     <servlet-mapping>
+     	<!-- 하나의 서블렛을 이용해서 처리하기 위해서 만들어 준다. -->
+     	<servlet-name>BSSFrontController</servlet-name>
+        <url-pattern>*.bss</url-pattern>
 	 </servlet-mapping>
 	 
     <welcome-file-list>

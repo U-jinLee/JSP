@@ -10,7 +10,8 @@ public class MemberDelAction implements Action {
 		MemberDAO mDAO = new MemberDAO();
 		Memberbean mbean = new Memberbean();
 		mbean.setId(request.getParameter("id"));
-		mDAO.MemberDel(mbean);
+		int result=mDAO.MemberDel(mbean);
+		request.setAttribute("result", result);
 		ActionForward forward = new ActionForward();
 		
 		
